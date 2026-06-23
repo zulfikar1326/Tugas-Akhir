@@ -81,5 +81,3 @@ Repository ini berisi **presentasi interaktif** hasil penelitian Tugas Akhir yan
 | **Responsif** | CSS Grid, Flexbox, Clamp units |
 
 ---
-
-## 📁 Struktur File
