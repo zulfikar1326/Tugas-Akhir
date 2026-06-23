@@ -1,33 +1,85 @@
-# React + TypeScript + Vite
+# 🎓 Analisis Sentimen Ulasan Pelanggan Alfamart Menggunakan SVM
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> Presentasi Final Tugas Akhir oleh **Zulfikar Juniarto**  
+> Program Studi Teknik Informatika – Universitas Dharma Wacana  
+> 📅 Metro, 24 Juni 2026
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📖 Tentang Proyek
 
-## React Compiler
+Repository ini berisi **presentasi interaktif** hasil penelitian Tugas Akhir yang menganalisis sentimen ulasan pelanggan Alfamart menggunakan algoritma **Support Vector Machine (SVM)** dengan optimasi **SMOTE**. Presentasi dirancang dengan tampilan modern, responsif, dan animasi halus menggunakan GSAP.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔗 **Live Demo**: [Klik di sini untuk melihat presentasi](#) *(ganti dengan link部署 Anda)*
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## ✨ Fitur Presentasi
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+| Fitur | Deskripsi |
+|-------|-----------|
+| 🎨 **Visual Interaktif** | Animasi partikel latar, transisi slide halus, dan donut chart dinamis |
+| 📊 **Data Real** | Menampilkan 76.951 ulasan dari 30+ kota di seluruh Indonesia |
+| 🧠 **Perbandingan Eksplisit** | Skenario A (SVM) vs Skenario B (SVM + SMOTE) |
+| 📈 **Metrik Lengkap** | Akurasi, F1-Score, Recall, Confusion Matrix |
+| 📱 **Responsif** | Optimal untuk proyektor, laptop, dan perangkat mobile |
+| 🎯 **Navigasi Intuitif** | Tombol panah, dot indicator, keyboard shortcut, dan touch support |
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
-# Tugas-Akhir
+---
+
+## 🗺️ Alur Presentasi (16 Slide)
+
+| # | Slide | Konten Utama |
+|---|-------|--------------|
+| 1 | **Pembuka** | Judul, Nama, NIM, Universitas |
+| 2 | **Alur Presentasi** | Peta jalan penelitian |
+| 3 | **Latar Belakang** | Masalah & celah penelitian (77K vs 4K data) |
+| 4 | **Rumusan Masalah** | 2 pertanyaan penelitian utama |
+| 5 | **Tinjauan Pustaka** | 14 penelitian terdahulu & gap analysis |
+| 6 | **Kebaruan Penelitian** | 77.828 data, 30+ kota, perbandingan SMOTE |
+| 7 | **Metodologi** | Alur preprocessing hingga evaluasi |
+| 8 | **Distribusi Sentimen** | Donut chart: Netral 49.38%, Positif 36.25%, Negatif 14.37% |
+| 9 | **Skenario A (SVM)** | Akurasi 96.67%, F1-Macro 96.03% |
+| 10 | **Skenario B (SVM+SMOTE)** | Akurasi 96.72%, Recall Negatif +2% |
+| 11 | **Perbandingan** | Analisis komprehensif A vs B |
+| 12 | **Pengujian Manual** | 11 opini buatan, confidence >95% |
+| 13 | **Confusion Matrix** | Pola kesalahan klasifikasi |
+| 14 | **Keterbatasan & Saran** | 4 keterbatasan + 6 saran pengembangan |
+| 15 | **Kesimpulan** | Jawaban atas 2 rumusan masalah |
+| 16 | **Penutup** | Terima Kasih & Sesi Tanya Jawab |
+
+---
+
+## 🧪 Hasil Utama Penelitian
+
+### 📊 Perbandingan Performa
+
+| Metrik | SVM (Tanpa SMOTE) | SVM + SMOTE | Perubahan |
+|--------|-------------------|-------------|-----------|
+| **Akurasi** | 96.67% | 96.72% | ⬆️ +0.05% |
+| **F1-Macro** | 96.03% | 96.19% | ⬆️ +0.16% |
+| **Recall Negatif** | 95% | 97% | ⬆️ **+2%** 🚀 |
+| **CV 5-Fold** | 95.70% ± 0.16% | 95.93% ± 0.20% | ⬆️ +0.23% |
+
+### 🎯 Kontribusi Penelitian
+
+1. **Skala Data Terbesar** – 77.828 ulasan (18x lebih besar dari rata-rata studi lain)
+2. **Cakupan Geografis Luas** – 30+ kota di seluruh Indonesia
+3. **Analisis SMOTE Eksplisit** – Pengaruh SMOTE pada recall kelas negatif
+4. **Stabilitas Tinggi** – CV std dev < 0.2% membuktikan tidak overfitting
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+| Komponen | Teknologi |
+|----------|-----------|
+| **Frontend** | HTML5, CSS3, JavaScript (ES6) |
+| **Animasi** | GSAP (GreenSock Animation Platform) v3.12.5 |
+| **Partikel** | Canvas API |
+| **Font** | Google Fonts – Inter |
+| **Responsif** | CSS Grid, Flexbox, Clamp units |
+
+---
+
+## 📁 Struktur File
