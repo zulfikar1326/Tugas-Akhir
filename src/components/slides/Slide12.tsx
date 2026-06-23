@@ -34,8 +34,8 @@ export const Slide12: React.FC = () => {
               <span className="font-bold text-slate-400 text-xs md:text-sm">⚪ Netral</span>
               <span className="text-[10px] md:text-xs font-black text-slate-400 bg-slate-500/10 px-2 py-0.5 rounded">99.99%</span>
             </div>
-            <p className="text-[11px] md:text-xs text-slate-200 italic mt-1">"Tukang Parkir Alfamart tai emang"</p>
-            <p className="text-[9px] text-amber-400 font-semibold mt-1">🧠 Model belajar konteks kalimat, bukan kata kasar saja.</p>
+            <p className="text-[11px] md:text-xs text-slate-200 italic mt-1">"Tokonya biasa aja, standar minimarket pada umumnya."</p>
+            {/* <p className="text-[9px] text-amber-400 font-semibold mt-1"></p> */}
           </div>
 
           <div className="glass-card bg-white/5 border border-white/5 border-l-4 border-l-red-400 p-3.5 rounded-r-xl rounded-l-md">

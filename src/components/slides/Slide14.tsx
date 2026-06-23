@@ -36,15 +36,15 @@ export const Slide14: React.FC = () => {
             </li>
             <li className="flex gap-2">
               <span className="text-red-400 font-bold">2.</span>
-              <p>Hanya menggunakan <span className="text-sky-400 font-semibold">kernel linear</span>; RBF atau Sigmoid belum dieksplorasi.</p>
+              <p>Hanya menggunakan <span className="text-sky-400 font-semibold">kernel linear</span> RBF atau Sigmoid belum dieksplorasi.</p>
             </li>
             <li className="flex gap-2">
               <span className="text-red-400 font-bold">3.</span>
-              <p>Teknik balancing <span className="text-amber-400 font-semibold">hanya SMOTE</span>; belum dibandingkan dengan ADASYN.</p>
+              <p>Teknik balancing <span className="text-amber-400 font-semibold">hanya SMOTE</span> belum dibandingkan dengan ADASYN.</p>
             </li>
             <li className="flex gap-2">
               <span className="text-red-400 font-bold">4.</span>
-              <p>Sumber data <span className="text-sky-400 font-semibold">hanya Google Maps</span>; belum mencakup Twitter atau Play Store.</p>
+              <p>Sumber data <span className="text-sky-400 font-semibold">hanya Google Maps</span> belum mencakup Twitter atau Play Store.</p>
             </li>
           </ul>
         </motion.div>
