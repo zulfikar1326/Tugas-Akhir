@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { slideVariants, slideTransition, containerVariants, itemVariants } from './shared';
-import { Target, AlertCircle, TrendingUp } from 'lucide-react';
+import { Target, TrendingUp } from 'lucide-react';
 
 export const Slide2: React.FC = () => {
   return (
