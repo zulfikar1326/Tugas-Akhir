@@ -3,23 +3,6 @@ import { motion } from 'framer-motion';
 import { slideVariants, slideTransition, containerVariants, itemVariants } from './shared';
 
 export const Slide5: React.FC = () => {
-  const literatures = [
-    { no: 1, author: 'Nugroho dkk. (2023)', dataset: '4.201 ulasan', accuracy: '96.17%', weakness: 'F1 Netral = 0.00' },
-    { no: 2, author: 'Rahman dkk. (2022)', dataset: '3.500 ulasan', accuracy: '95%', weakness: 'Recall rendah (44%)' },
-    { no: 3, author: 'Bili dkk. (2022)', dataset: '219 ulasan', accuracy: '76.19%', weakness: 'Dataset sangat kecil' },
-    { no: 4, author: 'Firman dkk. (2022)', dataset: '~2.000 ulasan', accuracy: '83.5%', weakness: 'Recall rendah (44%)' },
-    { no: 5, author: 'Valentina dkk. (2022)', dataset: '~1.500 ulasan', accuracy: '96%', weakness: 'Recall Negatif 0.33' },
-    { no: 6, author: 'Anindya dkk. (2022)', dataset: '~1.200 ulasan', accuracy: '92.89%', weakness: 'Netral F1 = 67%' },
-    { no: 7, author: 'Putra dkk. (2019)', dataset: '~800 ulasan', accuracy: '86.81%', weakness: 'Kompleksitas tinggi' },
-    { no: 8, author: 'Annisa dkk. (2021)', dataset: '~600 ulasan', accuracy: '70%', weakness: 'Netral F1 = 0.50' },
-    { no: 9, author: 'Nurhasanah (2022)', dataset: '~1.200 ulasan', accuracy: '94%', weakness: 'Satu platform saja' },
-    { no: 10, author: 'Sirait dkk. (2021)', dataset: '~900 ulasan', accuracy: '85%', weakness: 'Peningkatan hanya 4%' },
-    { no: 11, author: 'Aditya dkk. (2022)', dataset: '~700 ulasan', accuracy: '98%', weakness: 'Dua kelas saja' },
-    { no: 12, author: 'Ikrami dkk. (2024)', dataset: '~1.800 ulasan', accuracy: '89.29%', weakness: 'Tanpa optimasi' },
-    { no: 13, author: 'Muthia dkk. (2023)', dataset: '~1.000 ulasan', accuracy: '98.67%', weakness: 'Pelabelan manual bias' },
-    { no: 14, author: 'Subakti dkk. (2024)', dataset: '~2.500 ulasan', accuracy: '88.50%', weakness: 'Metode berbeda (NB)' },
-  ];
-
   return (
     <motion.div
       variants={slideVariants}
@@ -29,50 +12,50 @@ export const Slide5: React.FC = () => {
       transition={slideTransition}
       className="flex flex-col justify-center h-full max-w-6xl mx-auto px-4"
     >
-      <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">📚 Tinjauan Pustaka</h2>
-      <p className="text-sm md:text-base text-slate-400 border-l-4 border-sky-400 pl-4 mt-2 mb-4">Perbandingan dengan 14 Penelitian Terdahulu</p>
+      <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">📊 Pembahasan: Analisis Kesalahan</h2>
+      <p className="text-sm md:text-base text-slate-400 border-l-4 border-sky-400 pl-4 mt-2 mb-4">Confusion Matrix & Pengujian Manual</p>
 
-      <motion.div
-        variants={containerVariants}
-        animate="animate"
-        className="flex flex-col gap-3 min-h-0"
-      >
-        <motion.div variants={itemVariants} className="glass-card bg-white/5 border border-white/5 p-4 rounded-2xl flex flex-col min-h-0 max-h-72 overflow-y-auto slide-scrollbar">
-          <div className="overflow-x-auto w-full">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="border-b border-white/10 text-[10px] md:text-xs text-slate-400 uppercase tracking-widest">
-                  <th className="py-2 px-3">No</th>
-                  <th className="py-2 px-3">Peneliti (Tahun)</th>
-                  <th className="py-2 px-3">Dataset</th>
-                  <th className="py-2 px-3">Akurasi</th>
-                  <th className="py-2 px-3">Kelemahan</th>
-                </tr>
-              </thead>
-              <tbody>
-                {literatures.map((lit, idx) => (
-                  <tr key={idx} className="border-b border-white/5 hover:bg-white/5 transition-colors text-xs text-slate-300">
-                    <td className="py-1.5 px-3 font-semibold text-slate-500">{lit.no}</td>
-                    <td className="py-1.5 px-3 font-bold text-white">{lit.author}</td>
-                    <td className="py-1.5 px-3">{lit.dataset}</td>
-                    <td className="py-1.5 px-3 text-sky-400 font-semibold">{lit.accuracy}</td>
-                    <td className="py-1.5 px-3">
-                      <span className={lit.weakness.includes('0.00') || lit.weakness.includes('0.33') ? 'text-red-400 font-semibold' : 'text-slate-400'}>
-                        {lit.weakness}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+      <motion.div variants={containerVariants} animate="animate" className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+        <motion.div variants={itemVariants} className="lg:col-span-3 glass-card bg-white/5 border border-white/5 p-4 rounded-2xl">
+          <h4 className="text-xs font-bold text-slate-300 mb-2 text-center">Perubahan Pola Kesalahan (Netral → Negatif)</h4>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="text-center">
+              <span className="text-[8px] uppercase text-slate-400">Tanpa SMOTE</span>
+              <div className="bg-white/5 p-3 rounded-xl mt-1">
+                <span className="text-2xl font-black text-red-400">72</span>
+                <span className="text-xs text-slate-500 block">Netral → Negatif</span>
+              </div>
+            </div>
+            <div className="text-center">
+              <span className="text-[8px] uppercase text-amber-400">Dengan SMOTE</span>
+              <div className="bg-amber-500/5 border border-amber-500/20 p-3 rounded-xl mt-1">
+                <span className="text-2xl font-black text-amber-400">115</span>
+                <span className="text-xs text-slate-500 block">Netral → Negatif (+60%)</span>
+              </div>
+            </div>
           </div>
+          <p className="text-[9px] text-slate-400 mt-3 text-center leading-relaxed">
+            ⚠️ <span className="text-amber-400 font-bold">Insight:</span> SMOTE meningkatkan sensitivitas terhadap sentimen negatif, sehingga model lebih berani mengklasifikasi ulasan ambigu sebagai <span className="text-red-400">Negatif</span> (Recall naik, Precision sedikit turun).
+          </p>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="glass-card bg-amber-500/5 border-l-6 border-l-amber-500 border-white/5 p-3 rounded-r-2xl">
-          <p className="text-amber-500 font-bold text-xs md:text-sm">⚡ Gap Penelitian:</p>
-          <p className="text-[11px] md:text-xs text-slate-300 mt-1">
-            Mayoritas studi menggunakan dataset &lt; 4.200 ulasan dan gagal mendeteksi sentimen negatif/netral (F1-Score 0.00 – 0.67). <span className="text-sky-400 font-semibold">Penelitian ini mengisi gap dengan dataset 77.828 ulasan</span> dan membandingkan pengaruh SMOTE secara eksplisit.
-          </p>
+        <motion.div variants={itemVariants} className="lg:col-span-2 glass-card bg-white/5 border border-white/5 p-4 rounded-2xl flex flex-col justify-center">
+          <h4 className="text-xs font-bold text-slate-300 mb-2 text-center">🧪 Uji Manual (Konteks {'>'} Kata Kasar)</h4>
+          <div className="space-y-2 text-center">
+            <div className="bg-white/5 p-2 rounded-lg border-l-2 border-l-emerald-400">
+              <p className="text-[10px] text-slate-200 italic">"Pelayanan sangat ramah!"</p>
+              <span className="text-[8px] text-emerald-400 font-bold">✅ Positif (99.9%)</span>
+            </div>
+            <div className="bg-white/5 p-2 rounded-lg border-l-2 border-l-slate-400">
+              <p className="text-[10px] text-slate-200 italic">"Seperti pada Umumnya minimarket lh"</p>
+              <span className="text-[8px] text-amber-400 font-bold">⚪ Netral (99.99%) → Model paham konteks!</span>
+            </div>
+            <div className="bg-white/5 p-2 rounded-lg border-l-2 border-l-red-400">
+              <p className="text-[10px] text-slate-200 italic">"Kasir tidak sopan & tidak senyum"</p>
+              <span className="text-[8px] text-red-400 font-bold">❌ Negatif (97.9%)</span>
+            </div>
+          </div>
+          <p className="text-[8px] text-slate-500 mt-2 text-center">10 dari 11 opini buatan confidence &gt; 95%</p>
         </motion.div>
       </motion.div>
     </motion.div>

@@ -1,9 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { slideVariants, slideTransition, containerVariants, itemVariants } from './shared';
-import { AlertCircle, Target, TrendingUp } from 'lucide-react';
+import { DonutChart } from '../DonutChart';
+import { Smartphone, ShieldCheck, Tag, BarChart2, FlaskConical, ClipboardCheck, ArrowRight } from 'lucide-react';
 
 export const Slide3: React.FC = () => {
+  const steps = [
+    { icon: <Smartphone className="w-35 h-15 text-sky-400" />, label: 'Scraping', desc: '77.828' },
+    { icon: <ShieldCheck className="w-35 h-15 text-emerald-400" />, label: 'Preprocess', desc: '76.951' },
+    { icon: <Tag className="w-35 h-15 text-slate-400" />, label: 'Pelabelan', desc: 'Lexicon' },
+    { icon: <BarChart2 className="w-35 h-15 text-slate-400" />, label: 'TF-IDF', desc: '7.500 fitur' },
+    { icon: <FlaskConical className="w-35 h-15 text-amber-400" />, label: '2 Skenario', desc: 'A: SVM | B: +SMOTE' },
+    { icon: <ClipboardCheck className="w-35 h-15 text-indigo-400" />, label: 'Evaluasi', desc: 'CV 5-Fold' },
+  ];
+
   return (
     <motion.div
       variants={slideVariants}
@@ -13,71 +23,37 @@ export const Slide3: React.FC = () => {
       transition={slideTransition}
       className="flex flex-col justify-center h-full max-w-6xl mx-auto px-4"
     >
-      <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">🧠 Latar Belakang Masalah</h2>
-      <p className="text-sm md:text-base text-slate-400 border-l-4 border-sky-400 pl-4 mt-2 mb-6">Mengapa penelitian ini penting?</p>
+      <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">⚙️ Metode Penelitian</h2>
+      <p className="text-sm md:text-base text-slate-400 border-l-4 border-sky-400 pl-4 mt-2 mb-4">Alur eksperimen & distribusi data</p>
 
-      <motion.div
-        variants={containerVariants}
-        animate="animate"
-        className="grid grid-cols-1 lg:grid-cols-3 gap-6"
-      >
-        <motion.div variants={itemVariants} className="lg:col-span-2 flex flex-col gap-4">
-          <div className="glass-card bg-white/5 border border-white/5 p-5 rounded-2xl flex flex-col justify-between h-full">
-            <div>
-              <p className="text-base md:text-lg text-slate-200">
-                <span className="text-sky-400 font-semibold">Alfamart</span> memiliki ribuan gerai di seluruh Indonesia.
-              </p>
-              <div className="mt-4 flex flex-col">
-                <span className="text-xs uppercase tracking-wider text-slate-400">Volume Ulasan Mentah:</span>
-                <span className="text-3xl md:text-4xl font-black text-sky-400 mt-1">77.828</span>
-              </div>
-            </div>
-            
-            <div className="mt-5 pt-3 border-t border-white/5 flex gap-3 text-xs md:text-sm text-slate-400">
-              <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />
-              <p>
-                ❌ Penelitian sebelumnya rata-rata menggunakan <span className="text-red-400 font-semibold">data kecil (&lt;4.200)</span> dan gagal mendeteksi sentimen negatif (F1-Score 0.00).
-              </p>
-            </div>
+      <motion.div variants={containerVariants} animate="animate" className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <motion.div variants={itemVariants} className="lg:col-span-2 flex flex-col gap-3 justify-center">
+          <div className="flex flex-wrap items-center justify-center gap-1.5">
+            {steps.map((step, idx) => (
+              <React.Fragment key={idx}>
+                <div className={`glass-card p-2.5 rounded-xl border flex flex-col items-center text-center flex-1 min-w-[80px] ${step.label === '2 Skenario' || step.label === 'Evaluasi' ? 'bg-sky-500/10 border-sky-400/30' : 'bg-white/5 border-white/5'}`}>
+                  <div className="mb-1">{step.icon}</div>
+                  <span className="text-[10px] font-bold text-white">{step.label}</span>
+                  <span className="text-[8px] text-slate-400">{step.desc}</span>
+                </div>
+                {idx < steps.length - 1 && <ArrowRight className="w-4 h-4 text-sky-500/30 hidden lg:block" />}
+              </React.Fragment>
+            ))}
           </div>
-
-          <div className="glass-card bg-amber-500/5 border-l-6 border-l-amber-500 border-white/5 p-4 rounded-r-2xl flex gap-3">
-            <Target className="w-6 h-6 text-amber-500 shrink-0 mt-0.5" />
-            <div>
-              <h4 className="font-bold text-amber-500 text-sm md:text-base">🎯 Celah Penelitian (Research Gap)</h4>
-              <p className="text-xs md:text-sm text-slate-400 mt-0.5">
-                Belum ada studi yang menguji SVM pada dataset ulasan ritel berskala besar (&gt;70.000) di Indonesia.
-              </p>
-            </div>
+          <div className="text-center text-[9px] text-slate-400 bg-white/5 border border-white/5 py-1.5 px-4 rounded-xl">
+            ⚡ 30+ kota di seluruh Indonesia (Jawa, Sumatera, Kalimantan, Sulawesi, Papua, Bali, Nusa Tenggara, Maluku)
+          </div>
+          <div className="flex gap-2 justify-center flex-wrap text-[8px] text-slate-500">
+            <span>📌 Case Folding</span><span>📌 Cleaning</span><span>📌 Stopword (Negasi dipertahankan)</span><span>📌 Stemming (Sastrawi)</span>
           </div>
         </motion.div>
 
-        <motion.div
-          variants={itemVariants}
-          className="glass-card bg-white/5 border border-white/5 p-6 rounded-2xl flex flex-col items-center justify-center text-center relative overflow-hidden"
-        >
-          <div className="absolute top-4 right-4 bg-white/5 p-2 rounded-full border border-white/5">
-            <TrendingUp className="w-5 h-5 text-amber-400" />
+        <motion.div variants={itemVariants} className="flex flex-col items-center justify-center">
+          <DonutChart />
+          <div className="mt-2 text-[9px] text-slate-400 text-center leading-relaxed">
+            <span className="text-white font-bold">76.951</span> ulasan bersih<br />
+            <span className="text-slate-400">Netral 49% | Positif 36% | Negatif 14%</span>
           </div>
-          <span className="text-4xl opacity-20 mb-3">📈</span>
-          <div className="flex gap-4 items-center justify-center my-2">
-            <div>
-              <span className="text-2xl md:text-3xl font-black text-red-500">4K</span>
-              <span className="block text-[10px] text-slate-400 uppercase tracking-widest mt-1">Studi Lain</span>
-            </div>
-            <span className="text-slate-600 font-bold text-lg">vs</span>
-            <div>
-              <span className="text-2xl md:text-3xl font-black text-emerald-400">77K</span>
-              <span className="block text-[10px] text-slate-400 uppercase tracking-widest mt-1">Studi Ini</span>
-            </div>
-          </div>
-          <div className="w-full bg-white/5 h-2.5 rounded-full mt-4 overflow-hidden relative border border-white/5">
-            <div className="bg-emerald-400 h-full w-[95%] rounded-full animate-pulse" />
-            <div className="bg-red-500 h-full w-[5%] absolute top-0 left-0 rounded-full" />
-          </div>
-          <p className="text-xs text-slate-400 mt-4">
-            Skala data <span className="text-amber-400 font-bold">18x lebih besar</span> dari rata-rata studi terdahulu.
-          </p>
         </motion.div>
       </motion.div>
     </motion.div>

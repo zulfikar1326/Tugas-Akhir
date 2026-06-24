@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { slideVariants, slideTransition, containerVariants, itemVariants } from './shared';
-import { Smartphone, ShieldCheck, Tag, BarChart2, FlaskConical, ClipboardCheck, ArrowRight } from 'lucide-react';
+import confetti from 'canvas-confetti';
 
 export const Slide7: React.FC = () => {
-  const steps = [
-    { icon: <Smartphone className="w-6 h-6 text-sky-400" />, label: 'Scraping', desc: '77.828 ulasan' },
-    { icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />, label: 'Preprocess', desc: '76.951 bersih' },
-    { icon: <Tag className="w-6 h-6 text-slate-400" />, label: 'Pelabelan', desc: 'Lexicon-based' },
-    { icon: <BarChart2 className="w-6 h-6 text-slate-400" />, label: 'TF-IDF', desc: '7.500 fitur' },
-    { icon: <FlaskConical className="w-6 h-6 text-amber-400" />, label: '2 Skenario', desc: 'A: SVM | B: +SMOTE', highlight: true },
-    { icon: <ClipboardCheck className="w-6 h-6 text-indigo-400" />, label: 'Evaluasi', desc: 'CV 5-Fold', highlight: true },
-  ];
+  useEffect(() => {
+    const duration = 2.5 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 1000 };
+    const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
+    const interval = setInterval(() => {
+      const timeLeft = animationEnd - Date.now();
+      if (timeLeft <= 0) return clearInterval(interval);
+      const particleCount = 50 * (timeLeft / duration);
+      confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+      confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+    }, 250);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <motion.div
@@ -20,48 +26,36 @@ export const Slide7: React.FC = () => {
       animate="animate"
       exit="exit"
       transition={slideTransition}
-      className="flex flex-col justify-center h-full max-w-6xl mx-auto px-4"
+      className="flex flex-col justify-center items-center text-center h-full gap-4 max-w-5xl mx-auto px-4"
     >
-      <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">⚙️ Metodologi Penelitian</h2>
-      <p className="text-sm md:text-base text-slate-400 border-l-4 border-sky-400 pl-4 mt-2 mb-4">Alur eksperimen dari data mentah hingga evaluasi model</p>
-
-      <motion.div
-        variants={containerVariants}
-        animate="animate"
-        className="flex flex-col gap-4"
-      >
-        <div className="flex flex-wrap lg:flex-nowrap items-center justify-between gap-2.5">
-          {steps.map((step, idx) => (
-            <React.Fragment key={idx}>
-              <motion.div
-                variants={itemVariants}
-                className={`glass-card p-3 rounded-xl border flex flex-col items-center text-center justify-center flex-1 min-w-[120px] ${
-                  step.highlight ? 'bg-sky-500/10 border-sky-400/30' : 'bg-white/5 border-white/5'
-                }`}
-              >
-                <div className="mb-2 bg-slate-900/50 p-2 rounded-full border border-white/5">{step.icon}</div>
-                <span className="text-xs md:text-sm font-bold text-white">{step.label}</span>
-                <span className="text-[10px] text-slate-400 mt-1 leading-tight">{step.desc}</span>
-              </motion.div>
-              {idx < steps.length - 1 && (
-                <div className="hidden lg:flex text-sky-500/50 font-bold text-xl">
-                  <ArrowRight className="w-5 h-5" />
-                </div>
-              )}
-            </React.Fragment>
-          ))}
-        </div>
-
-        <motion.div variants={itemVariants} className="text-center text-[10px] md:text-xs text-slate-400 bg-white/5 border border-white/5 py-1.5 px-4 rounded-xl">
-          ⚡ Data mencakup <span className="text-amber-400 font-semibold">30+ kota</span> di seluruh Indonesia (Jawa, Sumatera, Kalimantan, Sulawesi, Papua, Bali, Nusa Tenggara, Maluku)
+      <motion.div variants={containerVariants} animate="animate" className="flex flex-col items-center gap-2">
+        <motion.span variants={itemVariants} className="text-4xl opacity-40">🙏</motion.span>
+        <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-black text-white mt-1 tracking-tight">Terima Kasih</motion.h2>
+        <motion.div variants={itemVariants} className="w-16 h-1 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-full my-1" />
+        
+        <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full max-w-2xl mt-3 text-left">
+          <div className="glass-card bg-white/5 border border-white/5 p-3 rounded-xl">
+            <span className="text-[8px] uppercase text-sky-400 font-bold">01</span>
+            <p className="text-[10px] text-slate-300 leading-relaxed mt-1"><span className="text-white font-semibold">SVM:</span> Akurasi 96.67%, stabil di 76.951 data.</p>
+          </div>
+          <div className="glass-card bg-white/5 border border-white/5 p-3 rounded-xl">
+            <span className="text-[8px] uppercase text-amber-400 font-bold">02</span>
+            <p className="text-[10px] text-slate-300 leading-relaxed mt-1"><span className="text-white font-semibold">SMOTE:</span> Recall Negatif +2% (95% → 97%).</p>
+          </div>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="flex gap-4 justify-center flex-wrap text-[10px] md:text-xs text-slate-400">
-          <span>📌 Case Folding</span>
-          <span>📌 Cleaning</span>
-          <span>📌 Stopword (Negasi dipertahankan)</span>
-          <span>📌 Stemming (Sastrawi)</span>
+        <motion.p variants={itemVariants} className="text-xs md:text-sm text-slate-400 max-w-2xl font-light mt-1">
+          Saran pengembangan: Coba deep learning (BERT/LSTM), tambah data Twitter/Shopee, dan sistem real-time.
+        </motion.p>
+
+        <motion.div variants={itemVariants} className="flex gap-2.5 justify-center flex-wrap mt-2">
+          <span className="px-3 py-0.5 bg-white/5 border border-white/10 text-sky-400 rounded-full text-[10px] font-semibold">📧 zulfikar@student.dw.ac.id</span>
+          <span className="px-3 py-0.5 bg-white/5 border border-white/10 text-sky-400 rounded-full text-[10px] font-semibold">📅 24 Juni 2026</span>
         </motion.div>
+
+        <motion.p variants={itemVariants} className="text-slate-500 text-xs mt-4 border-t border-white/5 pt-3 w-56">
+          Siap menerima pertanyaan, kritik, dan saran.
+        </motion.p>
       </motion.div>
     </motion.div>
   );
