@@ -34,8 +34,8 @@ export const Slide6: React.FC = () => {
         </motion.div>
       </motion.div>
 
-      <motion.div variants={itemVariants} className="mt-4 bg-white/5 border border-white/5 p-2.5 rounded-xl text-center text-[10px] text-slate-400">
-        🎯 <span className="text-white font-semibold">Kontribusi:</span> Studi pertama dengan dataset &gt;70.000 ulasan ritel Indonesia yang menganalisis dampak SMOTE terhadap recall kelas negatif.
+      <motion.div variants={itemVariants} className="mt-4 bg-white/5 border border-white/5 p-2.5 rounded-xl text-center text-[12px] text-slate-400">
+        🎯 <span className="text-white font-semibold">Kontribusi:</span>Studi pertama dengan dataset &gt;70.000 ulasan ritel Indonesia yang menganalisis dampak SMOTE terhadap recall kelas negatif.
       </motion.div>
     </motion.div>
   );

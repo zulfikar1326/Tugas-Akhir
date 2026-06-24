@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+// import { FaGithub } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import { slideVariants, slideTransition, containerVariants, itemVariants } from './shared';
 import confetti from 'canvas-confetti';
 
@@ -35,12 +37,12 @@ export const Slide7: React.FC = () => {
         
         <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full max-w-2xl mt-3 text-left">
           <div className="glass-card bg-white/5 border border-white/5 p-3 rounded-xl">
-            <span className="text-[8px] uppercase text-sky-400 font-bold">01</span>
-            <p className="text-[10px] text-slate-300 leading-relaxed mt-1"><span className="text-white font-semibold">SVM:</span> Akurasi 96.67%, stabil di 76.951 data.</p>
+            <span className="text-[25px] uppercase text-sky-400 font-bold">01</span>
+            <p className="text-[15px] text-slate-300 leading-relaxed mt-1"><span className="text-white font-semibold">SVM:</span> Akurasi 96.67%, stabil di 76.951 data.</p>
           </div>
           <div className="glass-card bg-white/5 border border-white/5 p-3 rounded-xl">
-            <span className="text-[8px] uppercase text-amber-400 font-bold">02</span>
-            <p className="text-[10px] text-slate-300 leading-relaxed mt-1"><span className="text-white font-semibold">SMOTE:</span> Recall Negatif +2% (95% → 97%).</p>
+            <span className="text-[25px] uppercase text-amber-400 font-bold">02</span>
+            <p className="text-[15px] text-slate-300 leading-relaxed mt-1"><span className="text-white font-semibold">SMOTE:</span> Recall Negatif +2% (95% → 97%).</p>
           </div>
         </motion.div>
 
@@ -49,8 +51,9 @@ export const Slide7: React.FC = () => {
         </motion.p>
 
         <motion.div variants={itemVariants} className="flex gap-2.5 justify-center flex-wrap mt-2">
-          <span className="px-3 py-0.5 bg-white/5 border border-white/10 text-sky-400 rounded-full text-[10px] font-semibold">📧 zulfikar@student.dw.ac.id</span>
-          <span className="px-3 py-0.5 bg-white/5 border border-white/10 text-sky-400 rounded-full text-[10px] font-semibold">📅 24 Juni 2026</span>
+          <span className="px-3 py-0.5 bg-white/5 border border-white/10 text-sky-400 rounded-full text-[10px] font-semibold">📧  zjuniarto@gmail.com</span>
+          <span className="px-3 py-0.5 bg-white/5 border border-white/10 text-sky-400 rounded-full text-[10px] font-semibold">📅  24 Juni 2026</span>
+          <span className="px-3 py-0.5 bg-white/5 border border-white/10 text-sky-400 rounded-full text-[10px] font-semibold"><a href='https://github.com/zulfikar1326' target='blank'><FaGithub className='inline align-text-bottom mr-1'/>zulfiker1326</a></span>
         </motion.div>
 
         <motion.p variants={itemVariants} className="text-slate-500 text-xs mt-4 border-t border-white/5 pt-3 w-56">
