@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { slideVariants, slideTransition, containerVariants, itemVariants } from './shared';
 import { AnimatedCounter } from '../AnimatedCounter';
-import { ChevronRight } from 'lucide-react';
 
 export const Slide4: React.FC = () => {
   return (
